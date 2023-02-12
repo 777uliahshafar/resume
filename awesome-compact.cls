@@ -720,6 +720,7 @@
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
+    \vspace{-3.0mm}
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
 }
 
