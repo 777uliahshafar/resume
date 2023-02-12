@@ -90,7 +90,8 @@
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
-
+% Formating on skill resume
+\RequirePackage{multicol}
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
@@ -735,6 +736,19 @@
   \vspace{-4.0mm}
 }
 
+\newenvironment{cvitemsplus}{%
+  \vspace{-9.0mm}
+  \begin{justify}
+  \begin{multicols}{2}
+  \begin{itemize}[leftmargin=3ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{multicols}
+  \end{justify}
+  \vspace{-10.0mm}
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
