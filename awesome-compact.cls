@@ -690,11 +690,11 @@
 % Define an environment for cvhonor
 \newenvironment{cvhonors}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-4mm}
+  \vspace{-2mm}
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5cm} L{\textwidth - 4.0cm} R{2.5cm}}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.5cm} L{\textwidth - 5.0cm} R{2.5cm}}
 }{%
     \end{tabular*}
   \end{center}
@@ -735,7 +735,7 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-5.0mm}
+  \vspace{-5.5mm}
 }
 
 \newenvironment{cvitemsplus}{%
