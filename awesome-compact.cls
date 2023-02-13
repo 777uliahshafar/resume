@@ -708,7 +708,7 @@
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
-%  \vspace{-2.0mm}
+  \vspace{-1.0mm}
   \begin{center}
     \setlength\tabcolsep{1ex}
 %    \setlength{\extrarowheight}{5pt}
@@ -722,6 +722,7 @@
 \newcommand*{\cvskill}[2]{%
     \vspace{-3.0mm}
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+    \vspace{-1.0mm}
 }
 
 % Define an environment for cvitems(for cventry)
@@ -734,7 +735,7 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.5mm}
+  \vspace{-5.0mm}
 }
 
 \newenvironment{cvitemsplus}{%
