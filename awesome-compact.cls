@@ -126,7 +126,7 @@
 \definecolor{black}{HTML}{000000}
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{5D5D5D}
-\definecolor{dianne}{HTML}{B6073F}
+\definecolor{dianne}{HTML}{450808}
 \definecolor{liquorice}{HTML}{302A2C}
 \definecolor{lightgray}{HTML}{999999}
 % Basic colors
@@ -620,14 +620,13 @@
   \sectionstyle{#1}
   \phantomsection
   \color{sectiondivider}\vhrulefill{0.5pt}
-  \vspace{1mm}
+  \vspace{0.25\baselineskip}
 }
 
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
 \newcommand{\cvsubsection}[1]{%
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-5mm}
+  \vspace{\acvSectionTopSkip}
   \subsectionstyle{#1}
   \phantomsection
 }
@@ -654,7 +653,7 @@
 \newcommand*{\cventry}[5]{%
   \vspace{-2.7mm}
   \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{-2pt}
+  \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
@@ -690,11 +689,10 @@
 
 % Define an environment for cvhonor
 \newenvironment{cvhonors}{%
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-2mm}
+  \vspace{\acvSectionTopSkip}
   \begin{center}
     \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
+    \setlength{\extrarowheight}{0.03\baselineskip}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.5cm} L{\textwidth - 5.0cm} R{2.5cm}}
 }{%
     \end{tabular*}
@@ -708,8 +706,7 @@
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-1.0mm}
+  \vspace{\acvSectionTopSkip}
   \begin{center}
     \setlength\tabcolsep{1ex}
 %    \setlength{\extrarowheight}{5pt}
@@ -721,36 +718,21 @@
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
-    \vspace{-3.0mm}
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
     \vspace{-1.0mm}
 }
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-3.8mm}
+  \vspace{-4mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep,labelsep=.79mm]
+  \begin{itemize}[leftmargin=*,labelsep=0.5em,nosep,itemsep=0.13\baselineskip,after=\vspace{0.13\baselineskip}]
     \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
+    \renewcommand{\labelitemi}{\small\textbullet}
 }{%
   \end{itemize}
   \end{justify}
   \vspace{-4.5mm}
-}
-
-\newenvironment{cvitemsplus}{%
-  \vspace{-5.0mm}
-  \begin{justify}
-  \begin{multicols}{2}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
-    \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
-}{%
-  \end{itemize}
-  \end{multicols}
-  \end{justify}
-  \vspace{-8.5mm}
 }
 
 %-------------------------------------------------------------------------------
