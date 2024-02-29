@@ -24,6 +24,7 @@
 *.mtc1
 *.out
 *.run.xml
+*.synctex(busy)
 *.synctex.gz
 *.synctex.gz.sum.synctex
 .DS_Store

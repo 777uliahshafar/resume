@@ -682,6 +682,7 @@
   \phantomsection
 }
 
+% avoid extra space after an cv item
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
   \vspace{\acvSectionTopSkip}
