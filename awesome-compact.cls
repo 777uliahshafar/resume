@@ -105,7 +105,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
+\geometry{hmargin=2.25cm,vmargin=2cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and footer
@@ -126,7 +126,7 @@
 \definecolor{black}{HTML}{000000}
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{5D5D5D}
-\definecolor{dianne}{HTML}{1D3C45}
+\definecolor{dianne}{HTML}{B6073F}
 \definecolor{liquorice}{HTML}{302A2C}
 \definecolor{lightgray}{HTML}{999999}
 % Basic colors
@@ -620,6 +620,7 @@
   \sectionstyle{#1}
   \phantomsection
   \color{sectiondivider}\vhrulefill{0.5pt}
+  \vspace{1mm}
 }
 
 % Define a subsection for CV
@@ -651,9 +652,9 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
+  \vspace{-2.7mm}
   \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
+  \setlength{\extrarowheight}{-2pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
@@ -727,15 +728,15 @@
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-5.0mm}
+  \vspace{-3.8mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep,labelsep=.79mm]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-5.5mm}
+  \vspace{-4.5mm}
 }
 
 \newenvironment{cvitemsplus}{%
