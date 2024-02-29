@@ -7,27 +7,16 @@
 %-------------------------------------------------------------------------------
 %	CONTENT
 %-------------------------------------------------------------------------------
-\begin{cventries}
+%% Assuming you've already given \addbibresource{own-bib.bib} in the main doc. Right? Right???
+\nocite{*}
 
-%---------------------------------------------------------
-  \cventry
-    {First Author} % Role
-    {Visitor Preference on Public Space in Senggol Waterfront Parepare} % Title
-    {Diponegoro University} % Location
-    {2022} % Date(s)
-    {}
+%% If you just want everything in one list
 
-  \cventry
-    {First Author} % Role
-    {The Use Effectiveness of The Square as a Public Open Space} % Title
-    {Nature Journal} % Location
-    {2021-06-30} % Date(s)
-    {
-      \begin{cvitems} % Description(s) bullet points
-        \item {Issue: Volume 8, Number 1, 2021, pg 53-61}
-        \item {Keywords: Behavioral Mapping; Public Open Space; Place Centre Map; Public Facilities. }
-      \end{cvitems}
-    }
-
-%---------------------------------------------------------
-\end{cventries}
+\begin{cvparagraph}
+	\printbibliography[heading={none}]
+\end{cvparagraph}
+% \printbibliography[heading={subbibliography},title={Journal Articles},type=article]
+%
+% \printbibliography[heading={subbibliography},title={Conference Proceedings},type=inproceedings]
+%
+% \printbibliography[heading={subbibliography},title={Books and Chapters},filter={booksandchapters}]

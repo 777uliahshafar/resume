@@ -92,6 +92,59 @@
 \RequirePackage{bookmark}
 % Formating on skill resume
 \RequirePackage{multicol}
+% Preamble of Bibliography
+\RequirePackage{biblatex}
+\RequirePackage{csquotes}
+% Default biblatex style used for the publication list is APA6. If you wish to use a different style or pass other options to biblatex you can change them here.
+\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true}{biblatex}
+
+% If you need to further customise your biblatex setup e.g. with \DeclareFieldFormat etc please add them here AFTER loading settings.sty. For example, to remove the default "[Online] Available:" prefix before URLs when using the IEEE style:
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+
+%% Only needed if you want a Publication List
+\addbibresource{personal.bib}
+
+%% Specify your last name(s) and first name(s) (as given in the .bib) to automatically bold your own name in the publications list.
+%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+% \mynames{Lim/Lian\bibnamedelima Tze}
+
+%% You can specify multiple names like this, especially if you have changed your name or if you need to highlight multiple authors. See items 6–9 in the example "Journal Articles" output.
+% \mynames{Shafar\bibnamedelima Muhammad\bibnamedelima Uliah,
+%   Wong/Lian\bibnamedelima Tze,
+%   Lim/Tracy,
+%   Muhammad Uliah\bibnamedelimi Shafar}
+% %% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+\RequirePackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+   \node[shape=circle,text=white,fill=graytext!80!black,font=\bodyfont,inner sep=1pt,text height=9pt,minimum width=1.3em,text centered] (char) {#1};}}
+
+\newcounter{bibitem}
+\AtBeginBibliography{\setcounter{bibitem}{1}}
+\iffieldformatundef{labelnumberwidth}{%
+  % if author-year style
+  \AtEveryBibitem{\makebox[2.5em][l]{\circled{\thebibitem}\stepcounter{bibitem}}}%
+}{%
+  % if numeric style
+  \DeclareFieldFormat{labelnumberwidth}{\makebox[2.5em][l]{\circled{\thebibitem}}}%
+  \setlength{\biblabelsep}{0pt}%
+  \AtEveryBibitem{\stepcounter{bibitem}}%
+}
+\AtEveryBibitem{\iffieldundef{doi}{}{\clearfield{url}}}
+
+\renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibhang}{2.5em}
+\RequirePackage{xpatch}
+\xpretofieldformat{doi}
+  {\color{graytext!80!black}{\scriptsize\faLink}}
+  {}{}
+\xpretofieldformat{url}
+  {\color{graytext!80!black}{\scriptsize\faLink}}
+  {}{}
+
+
+
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
 %-------------------------------------------------------------------------------
@@ -226,7 +279,6 @@
 \newcommand*{\lettertextstyle}{\fontsize{10pt}{1.4em}\bodyfontlight\upshape\color{graytext}}
 \newcommand*{\letternamestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\letterenclosurestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{lighttext} #1}}
-
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
@@ -620,7 +672,6 @@
   \sectionstyle{#1}
   \phantomsection
   \color{sectiondivider}\vhrulefill{0.5pt}
-  \vspace{0.25\baselineskip}
 }
 
 % Define a subsection for CV
@@ -633,8 +684,7 @@
 
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
+  \vspace{\acvSectionTopSkip}
   \paragraphstyle
 }{%
   \par
@@ -643,7 +693,7 @@
 
 % Define an environment for cventry
 \newenvironment{cventries}{%
-  \vspace{\acvSectionContentTopSkip}
+  \vspace{\acvSectionTopSkip}
   \begin{center}
 }{%
   \end{center}
@@ -651,9 +701,8 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.7mm}
   \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
+  \setlength{\extrarowheight}{-2pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}

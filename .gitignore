@@ -9,6 +9,7 @@
 *.acr
 *.alg
 *.bbl
+*.bcf
 *.blg
 *.dvi
 *.xdv
@@ -22,6 +23,7 @@
 *.mtc
 *.mtc1
 *.out
+*.run.xml
 *.synctex.gz
 *.synctex.gz.sum.synctex
 .DS_Store
